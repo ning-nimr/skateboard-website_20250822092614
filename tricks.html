@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skateboarding Tricks</title>
+    <style>
+        :root {
+            --primary-color: #ff5722;
+            --secondary-color: #2196f3;
+            --dark-color: #333;
+            --light-color: #f4f4f4;
+            --success-color: #4caf50;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+        
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://cdn.shopify.com/s/files/1/0557/5239/2813/files/Embrace_the_Challenge2.jpg?v=1725977170');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .section-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .section-content {
+            padding: 1.5rem;
+        }
+        
+        .trick {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 2rem;
+        }
+        
+        .trick:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .trick-title {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .trick-title h3 {
+            margin-right: 10px;
+        }
+        
+        .difficulty {
+            font-size: 0.8rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 20px;
+            color: white;
+            background-color: var(--secondary-color);
+        }
+        
+        .difficulty.beginner {
+            background-color: var(--success-color);
+        }
+        
+        .difficulty.intermediate {
+            background-color: var(--secondary-color);
+        }
+        
+        .difficulty.advanced {
+            background-color: var(--primary-color);
+        }
+        
+        .trick-content {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        @media (min-width: 768px) {
+            .trick-content {
+                flex-direction: row;
+            }
+        }
+        
+        .trick-description {
+            flex: 1;
+        }
+        
+        .trick-image {
+            flex: 1;
+            margin-top: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .trick-image {
+                margin-top: 0;
+                margin-left: 1rem;
+            }
+        }
+        
+        .trick-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .trick-image img:hover {
+            transform: scale(1.03);
+        }
+        
+        .steps {
+            margin-top: 1rem;
+            padding-left: 1.5rem;
+        }
+        
+        .steps li {
+            margin-bottom: 0.5rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--dark-color);
+            color: white;
+            margin-top: 2rem;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+        }
+        
+        .back-to-top:hover {
+            background-color: #e64a19;
+        }
+        
+        nav {
+            background-color: var(--dark-color);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links li {
+            margin: 0 1rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Skateboarding Tricks</h1>
+        <p>Master the art of skateboarding from basic to advanced tricks</p>
+    </header>
+    
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#basics">Basic Tricks</a></li>
+            <li><a href="#intermediate">Intermediate Tricks</a></li>
+            <li><a href="#advanced">Advanced Tricks</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <div class="intro">
+            <p>Mastering skateboarding tricks is a progressive journey that builds upon foundational skills. Starting with basic maneuvers and advancing to more complex tricks enhances both your technique and confidence. This guide will help you learn essential skateboarding tricks with step-by-step instructions.</p>
+        </div>
+        
+        <section id="basics" class="section">
+            <div class="section-header">
+                <h2>Basic Tricks</h2>
+            </div>
+            <div class="section-content">
+                <div class="trick">
+                    <div class="trick-title">
+                        <h3>Ollie</h3>
+                        <span class="difficulty beginner">Beginner</span>
+                    </div>
+                    <div class="trick-content">
+                        <div class="trick-description">
+                            <p>The ollie is the cornerstone of skateboarding tricks, enabling the rider and board to leap into the air without hand assistance.</p>
+                            <ol class="steps">
+                                <li><strong>Foot Placement:</strong> Position your back foot on the tail and your front foot just behind the front bolts.</li>
+                                <li><strong>Crouch and Pop:</strong> Bend your knees, then snap the tail down with your back foot while jumping upward.</li>
+                                <li><strong>Slide Front Foot:</strong> As the board rises, slide your front foot up toward the nose to level the board mid-air.</li>
+                                <li><strong>Land:</strong> Prepare to land by guiding the board back to the ground with your feet over the bolts for stability.</li>
+                            </ol>
+                            <p>Mastering the ollie is crucial, as it forms the foundation for many other tricks.</p>
+                        </div>
+                        <div class="trick-image">
+                            <img src="https://i.pinimg.com/736x/cf/94/94/cf9494b236815f32b7c08c46b65e7789.jpg" alt="Ollie skateboarding trick" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="trick">
+                    <div class="trick-title">
+                        <h3>Tic-Tac</h3>
+                        <span class="difficulty beginner">Beginner</span>
+                    </div>
+                    <div class="trick-content">
+                        <div class="trick-description">
+                            <p>Tic-tacs are small back-and-forth turns that help generate momentum without pushing.</p>
+                            <ol class="steps">
+                                <li><strong>Foot Position:</strong> Place your back foot on the tail and your front foot near the front bolts.</li>
+                                <li><strong>Lift Front Wheels:</strong> Apply slight pressure on the tail to lift the front wheels.</li>
+                                <li><strong>Turn:</strong> Use your shoulders and hips to pivot the board left and right, creating a back-and-forth motion.</li>
+                                <li><strong>Generate Speed:</strong> Continue this motion to build momentum.</li>
+                            </ol>
+                            <p>Tic-tacs are excellent for improving balance and learning to maneuver the board.</p>
+                        </div>
+                        <div class="trick-image">
+                            <img src="https://goskate.com/top/wp-content/uploads/2021/10/Ollie_skate.jpg" alt="Tic-Tac skateboarding technique" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="trick">
+                    <div class="trick-title">
+                        <h3>Manual</h3>
+                        <span class="difficulty beginner">Beginner</span>
+                    </div>
+                    <div class="trick-content">
+                        <div class="trick-description">
+                            <p>A manual involves balancing on either the front or back wheels while rolling.</p>
+                            <ol class="steps">
+                                <li><strong>Foot Position:</strong> Place your back foot on the tail and your front foot near the front bolts.</li>
+                                <li><strong>Shift Weight:</strong> Lean back slightly to lift the front wheels off the ground.</li>
+                                <li><strong>Balance:</strong> Maintain this position, keeping your weight centered to avoid tipping too far back or letting the front wheels touch down.</li>
+                                <li><strong>Exit:</strong> Gently shift your weight forward to bring all wheels back to the ground.</li>
+                            </ol>
+                            <p>Practicing manuals improves balance and control, foundational skills for more complex tricks.</p>
+                        </div>
+                        <div class="trick-image">
+                            <img src="https://www.theskateclub.com/wp-content/uploads/2025/02/andrew-pons-l0iOHra9kNc-unsplash.jpg" alt="Manual skateboarding trick" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="intermediate" class="section">
+            <div class="section-header">
+                <h2>Intermediate Tricks</h2>
+            </div>
+            <div class="section-content">
+                <div class="trick">
+                    <div class="trick-title">
+                        <h3>Frontside 180</h3>
+                        <span class="difficulty intermediate">Intermediate</span>
+                    </div>
+                    <div class="trick-content">
+                        <div class="trick-description">
+                            <p>This trick combines an ollie with a 180-degree rotation of both the board and your body.</p>
+                            <ol class="steps">
+                                <li><strong>Setup:</strong> Begin in an ollie stance.</li>
+                                <li><strong>Initiate Rotation:</strong> As you pop the ollie, turn your shoulders and hips frontside (facing forward).</li>
+                                <li><strong>Follow Through:</strong> The board will follow your body's rotation.</li>
+                                <li><strong>Land:</strong> Bend your knees upon landing to absorb the impact.</li>
+                            </ol>
+                            <p>This trick is essential for developing rotational control and leads to more advanced maneuvers.</p>
+                        </div>
+                        <div class="trick-image">
+                            <img src="https://geekireland.com/wp-content/uploads/2024/10/Skateboard-3-1200x675.jpg" alt="Frontside 180 skateboarding trick" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="trick">
+                    <div class="trick-title">
+                        <h3>Pop Shove-It</h3>
+                        <span class="difficulty intermediate">Intermediate</span>
+                    </div>
+                    <div class="trick-content">
+                        <div class="trick-description">
+                            <p>The pop shove-it involves spinning the board 180 degrees beneath you without flipping it.</p>
+                            <ol class="steps">
+                                <li><strong>Foot Position:</strong> Place your back foot on the tail and your front foot near the board's center.</li>
+                                <li><strong>Pop and Scoop:</strong> Pop the tail down while scooping it backward with your back foot to initiate the spin.</li>
+                                <li><strong>Guide with Front Foot:</strong> Keep your front foot above the board to guide its rotation.</li>
+                                <li><strong>Land:</strong> As the board completes the 180-degree spin, land with both feet over the bolts.</li>
+                            </ol>
+                            <p>This trick enhances your ability to control the board's movement underfoot.</p>
+                        </div>
+                        <div class="trick-image">
+                            <img src="https://cms.skateboards.com/wp-content/uploads/2024/10/Ollie-Like-a-Pro-A-Comprehensive-Guide-to-Mastering-the-Ollie.jpg" alt="Pop Shove-It skateboarding trick" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="trick">
+                    <div class="trick-title">
+                        <h3>50-50 Grind</h3>
+                        <span class="difficulty intermediate">Intermediate</span>
+                    </div>
+                    <div class="trick-content">
+                        <div class="trick-description">
+                            <p>In a 50-50 grind, both trucks slide along a rail or ledge.</p>
+                            <ol class="steps">
+                                <li><strong>Approach:</strong> Ride toward the obstacle at a slight angle.</li>
+                                <li><strong>Ollie Onto Obstacle:</strong> Perform an ollie to land both trucks onto the obstacle.</li>
+                                <li><strong>Grind:</strong> Keep your weight centered and slide along the obstacle.</li>
+                                <li><strong>Dismount:</strong> At the end of the obstacle, lift slightly to guide the board off and land smoothly.</li>
+                            </ol>
+                            <p>This grind is fundamental for learning more complex grinding tricks.</p>
+                        </div>
+                        <div class="trick-image">
+                            <img src="https://static.wikia.nocookie.net/skateboarding/images/2/2a/Skateboard_grind_bikini.png/revision/latest/scale-to-width-down/1338?cb=20240813133104" alt="50-50 Grind skateboarding trick" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="advanced" class="section">
+            <div class="section-header">
+                <h2>Advanced Tricks</h2>
+            </div>
+            <div class="section-content">
+                <div class="trick">
+                    <div class="trick-title">
+                        <h3>Kickflip</h3>
+                        <span class="difficulty advanced">Advanced</span>
+                    </div>
+                    <div class="trick-content">
+                        <div class="trick-description">
+                            <p>A kickflip involves flipping the board 360 degrees along its length while performing an ollie.</p>
+                            <ol class="steps">
+                                <li><strong>Foot Placement:</strong> Back foot on the tail; front foot just behind the front bolts, angled slightly.</li>
+                                <li><strong>Pop and Flick:</strong> Pop the tail down and flick the edge of the board with your front foot's toes to initiate the flip.</li>
+                                <li><strong>Catch:</strong> As the board completes the flip, catch it with your back foot.</li>
+                                <li><strong>Land:</strong> Bring your front foot back onto the board and land over the bolts.</li>
+                            </ol>
+                            <p>The kickflip is a fundamental flip trick that opens the door to numerous variations.</p>
+                        </div>
+                        <div class="trick-image">
+                            <img src="https://cdn.shopify.com/s/files/1/0557/5239/2813/files/Embrace_the_Challenge4.jpg?v=1725977170" alt="Kickflip skateboarding trick" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="trick">
+                    <div class="trick-title">
+                        <h3>Heelflip</h3>
+                        <span class="difficulty advanced">Advanced</span>
+                    </div>
+                    <div class="trick-content">
+                        <div class="trick-description">
+                            <p>Similar to the kickflip, the heelflip flips the board using the heel instead of the toes.</p>
+                            <ol class="steps">
+                                <li><strong>Foot Placement:</strong> Back foot on the tail; front foot across the board, with the ball of your foot positioned slightly at an angle.</li>
+                                <li><strong>Pop and Flick:</strong> Pop the tail down and flick the edge of the board with your front foot's heel to initiate the flip.</li>
+                                <li><strong>Catch:</strong> As the board completes the flip, catch it with your back foot.</li>
+                                <li><strong>Land:</strong> Bring your front foot back onto the board and land over the bolts.</li>
+                            </ol>
+                            <p>The heelflip adds variety to your flip tricks and enhances board control.</p>
+                        </div>
+                        <div class="trick-image">
+                            <img src="https://i.ytimg.com/vi/1F7c8tApov8/maxresdefault.jpg" alt="Heelflip skateboarding trick" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="trick">
+                    <div class="trick-title">
+                        <h3>Boardslide</h3>
+                        <span class="difficulty advanced">Advanced</span>
+                    </div>
+                    <div class="trick-content">
+                        <div class="trick-description">
+                            <p>The boardslide involves sliding the board along an obstacle, such as a rail or ledge, with the board perpendicular to the obstacle.</p>
+                            <ol class="steps">
+                                <li><strong>Approach:</strong> Ride parallel to the obstacle with a comfortable speed.</li>
+                                <li><strong>Ollie Onto Obstacle:</strong> Perform an ollie to get the board onto the obstacle, landing with the middle of the board on the obstacle.</li>
+                                <li><strong>Slide:</strong> Keep your weight centered and slide along the obstacle.</li>
+                                <li><strong>Dismount:</strong> At the end of the obstacle, shift your weight to guide the board off and land smoothly.</li>
+                            </ol>
+                            <p>Boardslides are a gateway to more advanced rail and ledge tricks.</p>
+                        </div>
+                        <div class="trick-image">
+                            <img src="https://i1.wp.com/freestyletricktips.com/wp-content/uploads/2019/10/Denham-Paderborn-Railflip.jpg?fit=1200%2C1800&ssl=1" alt="Boardslide skateboarding trick" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 Skateboarding Tricks Guide. All rights reserved.</p>
+    </footer>
+    
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+    
+    <script>
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
