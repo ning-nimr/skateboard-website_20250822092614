@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skate Nation - Home</title>
+    <style>
+        :root {
+            --primary-color: #ff5722;
+            --secondary-color: #2196f3;
+            --dark-color: #333;
+            --light-color: #f4f4f4;
+            --max-width: 1200px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+        }
+        
+        .container {
+            max-width: var(--max-width);
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: var(--dark-color);
+            color: #fff;
+            padding: 1rem 0;
+            border-bottom: 3px solid var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        header h1 {
+            float: left;
+            margin-left: 20px;
+        }
+        
+        header nav {
+            float: right;
+            margin-right: 20px;
+        }
+        
+        header ul {
+            list-style: none;
+        }
+        
+        header ul li {
+            display: inline;
+            padding: 0 15px;
+        }
+        
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        
+        header a:hover {
+            color: var(--primary-color);
+        }
+        
+        .hero {
+            background: url('https://live.staticflickr.com/65535/53920979603_7110191295_b.jpg') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero * {
+            z-index: 1;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .section-padding {
+            padding: 40px 0;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .card {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        footer {
+            background: var(--dark-color);
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Skate Nation</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="history.html">History</a></li>
+                    <li><a href="tricks.html">Tricks</a></li>
+                    <li><a href="equipment.html">Equipment</a></li>
+                    <li><a href="culture.html">Culture</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Welcome to Skate Nation</h2>
+            <p>Your ultimate resource for everything skateboarding. Dive into the world of ollies, kickflips, and grinding.</p>
+        </div>
+    </section>
+
+    <section id="introduction" class="section-padding text-center">
+        <div class="container">
+            <h2>What is Skateboarding?</h2>
+            <p>Skateboarding is an action sport that involves riding and performing tricks using a skateboard. It's a recreational activity, an art form, a job, and a method of transportation. Skateboarding has been shaped and influenced by many skateboarders throughout the years. A 2009 report found that the sport had 11.08 million active skateboarders in the world. In 2016, it was announced that skateboarding would be represented at the 2020 Summer Olympics in Tokyo, Japan.</p>
+            <div class="grid-3" style="margin-top: 30px;">
+                <div class="card">
+                    <h3>Freedom</h3>
+                    <p>Experience the thrill of gliding and expressing yourself on four wheels.</p>
+                </div>
+                <div class="card">
+                    <h3>Community</h3>
+                    <p>Join a vibrant global community of passionate skateboarders.</p>
+                </div>
+                <div class="card">
+                    <h3>Art Form</h3>
+                    <p>Skateboarding is more than just a sport; it's a creative outlet and a lifestyle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Skate Nation. All rights reserved.</p>
+    </footer>
+</body>
+</html>
