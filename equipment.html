@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skateboarding Equipment Guide</title>
+    <style>
+        :root {
+            --primary-color: #ff5722;
+            --secondary-color: #2196f3;
+            --dark-color: #333;
+            --light-color: #f4f4f4;
+            --success-color: #4caf50;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+        
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://i.ytimg.com/vi/XO7p4D-3ljU/maxresdefault.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 1rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .equipment-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .equipment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        
+        .equipment-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .equipment-content {
+            padding: 1.5rem;
+        }
+        
+        .equipment-content h3 {
+            margin-top: 0;
+        }
+        
+        .skill-level {
+            margin: 2rem 0;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .skill-level h3 {
+            color: var(--primary-color);
+        }
+        
+        .skill-level ul {
+            list-style-type: none;
+            margin: 1rem 0;
+        }
+        
+        .skill-level li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .skill-level li:before {
+            content: "•";
+            color: var(--secondary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-table th, .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .comparison-table th {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .comparison-table tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .equipment-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Skateboarding Equipment Guide</h1>
+        <p>Everything you need to know about choosing the right skateboard components for your style and skill level</p>
+    </header>
+    
+    <div class="container">
+        <section id="intro">
+            <h2>Getting Started with Skateboarding Equipment</h2>
+            <p>Embarking on skateboarding requires not only enthusiasm but also the right equipment to ensure safety and enhance performance. Whether you're a beginner looking to get your first board or an experienced skater wanting to upgrade your setup, understanding the components of a skateboard is essential.</p>
+            
+            <div class="gallery">
+                <img src="https://cms.skateboards.com/wp-content/uploads/2024/10/Ollie-Like-a-Pro-A-Comprehensive-Guide-to-Mastering-the-Ollie.jpg" alt="Skateboarder performing an ollie trick" loading="lazy">
+                <img src="https://geekireland.com/wp-content/uploads/2024/10/Skateboard-3-1200x675.jpg" alt="Skateboarder at skatepark" loading="lazy">
+                <img src="https://www.theskateclub.com/wp-content/uploads/2025/02/andrew-pons-l0iOHra9kNc-unsplash.jpg" alt="Skateboarder doing a trick" loading="lazy">
+            </div>
+        </section>
+        
+        <section id="components">
+            <h2>Essential Skateboard Components</h2>
+            <div class="equipment-grid">
+                <div class="equipment-card">
+                    <img src="https://i.pinimg.com/736x/cf/94/94/cf9494b236815f32b7c08c46b65e7789.jpg" alt="Skateboard deck" loading="lazy">
+                    <div class="equipment-content">
+                        <h3>Skateboard Deck</h3>
+                        <p>The deck is the flat board you stand on. For beginners, a wider deck (7.8 to 8.0 inches) offers greater stability, making it ideal for cruising and getting comfortable on the board.</p>
+                        <p>A narrower deck (around 7.5 to 7.75 inches) is lighter and easier to flip, which is useful for learning tricks. An 8.0-inch deck is a solid all-around choice for most beginners.</p>
+                    </div>
+                </div>
+                
+                <div class="equipment-card">
+                    <img src="https://goskate.com/top/wp-content/uploads/2021/10/Ollie_skate.jpg" alt="Skateboard trucks" loading="lazy">
+                    <div class="equipment-content">
+                        <h3>Trucks</h3>
+                        <p>Trucks are the metal components that attach the wheels to the deck and allow for turning. Choosing the right size is crucial:</p>
+                        <ul>
+                            <li>For decks between 7.5 to 8.0 inches, opt for trucks sized 129mm to 139mm.</li>
+                            <li>For decks around 8.25 inches, 149mm trucks are suitable.</li>
+                        </ul>
+                        <p>Properly adjusted and maintained trucks contribute to a more enjoyable and safer ride.</p>
+                    </div>
+                </div>
+                
+                <div class="equipment-card">
+                    <img src="https://cdn.shopify.com/s/files/1/0557/5239/2813/files/Embrace_the_Challenge2.jpg?v=1725977170" alt="Skateboard wheels" loading="lazy">
+                    <div class="equipment-content">
+                        <h3>Wheels</h3>
+                        <p>Wheels affect how the skateboard rides on different surfaces:</p>
+                        <p><strong>Size:</strong> Measured in millimeters (mm).</p>
+                        <ul>
+                            <li>50-54mm: Suitable for street skating and technical tricks.</li>
+                            <li>55-60mm: Better for skateparks and rough surfaces.</li>
+                        </ul>
+                        <p><strong>Hardness (Durometer):</strong> Indicates how hard the wheels are.</p>
+                        <ul>
+                            <li>78A-87A: Softer wheels, ideal for rough surfaces and cruising.</li>
+                            <li>88A-95A: Medium hardness, versatile for various terrains.</li>
+                            <li>96A-101A: Harder wheels, best for smooth surfaces and technical tricks.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="equipment-card">
+                    <img src="https://external-preview.redd.it/onEcq2TTpIdALRgySb_EiwVEcYbmhw2AlAbrBSuzJjE.jpg?auto=webp&s=a507cfbdf0d1d542f386e73c017dc2205d585dc4" alt="Skateboard bearings" loading="lazy">
+                    <div class="equipment-content">
+                        <h3>Bearings</h3>
+                        <p>Bearings fit inside the wheels and allow them to spin smoothly. They are often rated by the ABEC scale, but for skateboarding, durability and material are more important than the ABEC rating.</p>
+                        <p>Regular maintenance, such as cleaning and lubricating, will keep your bearings in top shape and ensure a smooth ride.</p>
+                    </div>
+                </div>
+                
+                <div class="equipment-card">
+                    <img src="https://miro.medium.com/v2/resize:fit:2000/1*PeVgAgdXUjWhFzx6XsBRFQ.jpeg" alt="Grip tape application" loading="lazy">
+                    <div class="equipment-content">
+                        <h3>Grip Tape</h3>
+                        <p>Grip tape is the rough surface applied to the top of the deck, providing traction for your feet. It comes in various grit levels:</p>
+                        <ul>
+                            <li>Lower grit offers more grip but can wear down shoes faster.</li>
+                            <li>Higher grit is smoother and ideal for tricks.</li>
+                        </ul>
+                        <p>Proper application ensures better control and safety during tricks and regular riding.</p>
+                    </div>
+                </div>
+                
+                <div class="equipment-card">
+                    <img src="https://wisconsinlife.org/wp-content/uploads/2025/08/250813_NATIONALDIY02-scaled-1.jpg" alt="Skate shoes and protective gear" loading="lazy">
+                    <div class="equipment-content">
+                        <h3>Safety Equipment</h3>
+                        <p>Safety equipment is vital to prevent injuries:</p>
+                        <ul>
+                            <li><strong>Helmet:</strong> Protects against head injuries. Ensure it fits snugly and meets safety standards.</li>
+                            <li><strong>Knee and Elbow Pads:</strong> Cushion joints during falls, reducing the risk of scrapes and fractures.</li>
+                            <li><strong>Wrist Guards:</strong> Support wrists and help prevent sprains or fractures during falls.</li>
+                            <li><strong>Skate Shoes:</strong> Designed with flat soles and durable materials for better board control and protection.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="skill-levels">
+            <h2>Choosing Equipment by Skill Level</h2>
+            
+            <div class="skill-level">
+                <h3>Beginner Recommendations</h3>
+                <ul>
+                    <li><strong>Deck:</strong> 7.75" to 8.25" width for stability</li>
+                    <li><strong>Trucks:</strong> Medium height trucks that match your deck width</li>
+                    <li><strong>Wheels:</strong> 54-56mm, 97A-99A durometer for versatility</li>
+                    <li><strong>Bearings:</strong> Standard ABEC-5 or ABEC-7 bearings</li>
+                    <li><strong>Safety:</strong> Full set of protective gear including helmet, knee pads, elbow pads, and wrist guards</li>
+                </ul>
+                <p>As a beginner, focus on a complete setup that offers stability and durability rather than specialized components. Many shops offer pre-assembled complete skateboards that are perfect for beginners.</p>
+            </div>
+            
+            <div class="skill-level">
+                <h3>Intermediate Recommendations</h3>
+                <ul>
+                    <li><strong>Deck:</strong> Choose based on your preferred style (street, park, vert)</li>
+                    <li><strong>Trucks:</strong> Consider upgrading to higher quality trucks with better turning response</li>
+                    <li><strong>Wheels:</strong> Specialized wheels based on your skating style (smaller for street, larger for transition)</li>
+                    <li><strong>Bearings:</strong> Higher quality bearings for better speed and durability</li>
+                    <li><strong>Safety:</strong> Continue using protective gear, especially when learning new tricks</li>
+                </ul>
+                <p>At the intermediate level, you'll start to develop preferences for specific components based on your skating style and the tricks you're learning.</p>
+            </div>
+            
+            <div class="skill-level">
+                <h3>Advanced Recommendations</h3>
+                <ul>
+                    <li><strong>Deck:</strong> Highly specialized decks for your specific style (concave, width, wheelbase)</li>
+                    <li><strong>Trucks:</strong> Premium trucks with customized bushings for your weight and turning preference</li>
+                    <li><strong>Wheels:</strong> Specific durometer and size for your skating style and terrain</li>
+                    <li><strong>Bearings:</strong> Premium ceramic or Swiss bearings for maximum performance</li>
+                    <li><strong>Customization:</strong> Personalized grip tape patterns, custom risers, and specialized hardware</li>
+                </ul>
+                <p>Advanced skaters often have multiple setups for different types of skating and understand exactly how each component affects their performance.</p>
+            </div>
+        </section>
+        
+        <section id="styles">
+            <h2>Equipment for Different Skating Styles</h2>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Street Skating</th>
+                        <th>Park/Transition</th>
+                        <th>Cruising/Transportation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Deck</strong></td>
+                        <td>7.5" - 8.25", steep concave</td>
+                        <td>8.25" - 9.0", medium concave</td>
+                        <td>8.0" - 9.5", mild concave</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Trucks</strong></td>
+                        <td>Low to mid-height, responsive</td>
+                        <td>Mid to high, stable</td>
+                        <td>Mid-height, loose for carving</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wheels</strong></td>
+                        <td>50-54mm, 99A-101A</td>
+                        <td>54-60mm, 97A-99A</td>
+                        <td>56-65mm, 78A-90A</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bearings</strong></td>
+                        <td>Standard precision</td>
+                        <td>High precision</td>
+                        <td>Sealed for durability</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Grip Tape</strong></td>
+                        <td>High grit for maximum grip</td>
+                        <td>Standard grit</td>
+                        <td>Standard to low grit</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <section id="maintenance">
+            <h2>Equipment Maintenance Tips</h2>
+            <p>Proper maintenance of your skateboard not only extends its life but also ensures optimal performance and safety:</p>
+            
+            <h3>Regular Maintenance Checklist</h3>
+            <ul>
+                <li>Check and tighten all hardware regularly</li>
+                <li>Clean bearings every 1-2 months depending on use</li>
+                <li>Rotate wheels to ensure even wear</li>
+                <li>Replace grip tape when it loses its grip</li>
+                <li>Inspect the deck for cracks or delamination</li>
+                <li>Adjust truck tightness based on your riding style</li>
+            </ul>
+            
+            <h3>When to Replace Components</h3>
+            <ul>
+                <li><strong>Deck:</strong> When it develops cracks, chips that affect performance, or significant razor tail</li>
+                <li><strong>Wheels:</strong> When they develop flat spots or are worn down unevenly</li>
+                <li><strong>Bearings:</strong> When they no longer spin freely even after cleaning</li>
+                <li><strong>Grip Tape:</strong> When it's worn smooth or peeling significantly</li>
+                <li><strong>Trucks:</strong> Rarely need replacement unless bent or broken</li>
+            </ul>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 Skateboarding Equipment Guide. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Make tables responsive
+        const tables = document.querySelectorAll('table');
+        tables.forEach(table => {
+            const wrapper = document.createElement('div');
+            wrapper.style.overflowX = 'auto';
+            table.parentNode.insertBefore(wrapper, table);
+            wrapper.appendChild(table);
+        });
+    </script>
+</body>
+</html>
